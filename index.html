@@ -10,8 +10,6 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}
-
-  /* ── Login ── */
   #login-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
   .login-card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:2.5rem;width:100%;max-width:380px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.07)}
   .login-logo{width:54px;height:54px;background:#c0392b;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;color:#fff;font-weight:700;font-size:22px}
@@ -23,16 +21,12 @@
   .btn-login:hover{background:#a93226}
   .login-error{font-size:12px;color:#c0392b;margin-top:8px;min-height:18px}
   .login-footer{margin-top:1.5rem;font-size:12px;color:#9ca3af}
-
-  /* ── Hub ── */
   #hub-screen{display:none;min-height:100vh;flex-direction:column}
-  .hub-header{background:#c0392b;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+  .hub-header{background:#c0392b;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;flex-wrap:wrap;gap:8px}
   .hub-header-left{display:flex;align-items:center;gap:14px}
   .hub-logo{width:38px;height:38px;background:rgba(255,255,255,0.18);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;flex-shrink:0}
   .hub-title{font-size:16px;font-weight:700;color:#fff}
   .hub-sub{font-size:12px;color:rgba(255,255,255,0.75)}
-  .btn-logout{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:12px;padding:6px 14px;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.15s}
-  .btn-logout:hover{background:rgba(255,255,255,0.28)}
   .hub-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .btn-action{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s;text-decoration:none;border:none}
   .btn-booking{background:#fff;color:#c0392b}
@@ -41,27 +35,20 @@
   .btn-ticket:hover{background:rgba(255,255,255,0.28)}
   .btn-signout{background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);font-size:11px;padding:6px 12px}
   .btn-signout:hover{background:rgba(255,255,255,0.15)}
-
+  .btn-lang{background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:0.5px;transition:all 0.15s}
+  .btn-lang:hover{background:rgba(255,255,255,0.35)}
   .hub-body{padding:1.75rem 1.5rem;flex:1}
   .hub-body-inner{max-width:900px;margin:0 auto}
-
-  /* ── Search ── */
   .search-wrap{position:relative;margin-bottom:1.25rem}
   .search-wrap .ti-search{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:17px}
   #search-input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;color:#1a1a2e;background:#fff;outline:none;font-family:'Inter',sans-serif;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
   #search-input:focus{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,0.1)}
-
-  /* ── Filters ── */
   .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
   .filter-btn{padding:6px 16px;font-size:12px;font-weight:500;border-radius:20px;border:1.5px solid #e5e7eb;background:#fff;color:#6b7280;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s}
   .filter-btn.active,.filter-btn:hover{background:#c0392b;color:#fff;border-color:#c0392b}
-
-  /* ── Stats bar ── */
   .stats-bar{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
   .stat-chip{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 16px;font-size:13px;color:#6b7280}
   .stat-chip strong{color:#1a1a2e;font-weight:600}
-
-  /* ── Tips grid ── */
   .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
   .tip-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;padding:1.1rem 1.25rem;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s}
   .tip-card:hover{border-color:#c0392b;box-shadow:0 4px 16px rgba(192,57,43,0.1)}
@@ -76,11 +63,8 @@
   .tip-card h3{font-size:14px;font-weight:600;color:#1a1a2e;margin-bottom:6px;line-height:1.45}
   .tip-card p{font-size:13px;color:#6b7280;line-height:1.6}
   .tip-card-footer{margin-top:12px;display:flex;align-items:center;gap:5px;font-size:12px;color:#c0392b;font-weight:600}
-
   .empty-state{text-align:center;padding:4rem 1rem;color:#9ca3af;font-size:14px}
   .empty-state i{font-size:36px;display:block;margin-bottom:12px;color:#d1d5db}
-
-  /* ── Modal overlay ── */
   #modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto}
   #modal-overlay.open{display:flex}
   .modal{background:#fff;border-radius:14px;border:1px solid #e5e7eb;width:100%;max-width:580px;padding:1.75rem;box-shadow:0 20px 60px rgba(0,0,0,0.15);margin:auto}
@@ -98,8 +82,6 @@
   .pro-tip p{font-size:13px;color:#4b5563;line-height:1.65;margin:0}
   .pro-tip p strong{color:#c0392b}
   .modal-footer{margin-top:1.5rem;padding-top:1rem;border-top:1px solid #f3f4f6;font-size:12px;color:#9ca3af}
-
-  /* ── Footer ── */
   .hub-footer{background:#fff;border-top:1px solid #e5e7eb;padding:1rem 1.5rem;text-align:center;font-size:12px;color:#9ca3af}
 </style>
 </head>
@@ -124,48 +106,44 @@
     <div class="hub-header-left">
       <div class="hub-logo">S</div>
       <div>
-        <div class="hub-title">Speedy Agent Hub</div>
-        <div class="hub-sub">Your reference library — search any tip, anytime</div>
+        <div class="hub-title" id="hub-title-text">Speedy Agent Hub</div>
+        <div class="hub-sub" id="hub-sub-text">Your reference library — search any tip, anytime</div>
       </div>
     </div>
     <div class="hub-actions">
-      <a href="https://calendly.com/speedyinsadmin/30min" target="_blank" class="btn-action btn-booking"><i class="ti ti-calendar"></i> Book Training</a>
-      <a href="https://speedy-dashboard-tau.vercel.app/ticket.html" target="_blank" class="btn-action btn-ticket"><i class="ti ti-ticket"></i> Submit a Ticket</a>
+      <button class="btn-lang" onclick="toggleLang()" id="lang-btn">🇪🇸 Español</button>
+      <a href="https://calendly.com/speedyinsadmin/30min" target="_blank" class="btn-action btn-booking" id="btn-book"><i class="ti ti-calendar"></i> <span id="book-label">Book Training</span></a>
+      <a href="https://speedy-dashboard-tau.vercel.app/ticket.html" target="_blank" class="btn-action btn-ticket" id="btn-ticket-link"><i class="ti ti-ticket"></i> <span id="ticket-label">Submit a Ticket</span></a>
       <button class="btn-action btn-signout" onclick="logout()"><i class="ti ti-logout"></i></button>
     </div>
   </div>
 
   <div class="hub-body">
     <div class="hub-body-inner">
-
       <div class="search-wrap">
         <i class="ti ti-search"></i>
         <input type="text" id="search-input" placeholder="Search tips — try HawkLink, e-sign, click to call..." oninput="filterTips()"/>
       </div>
-
-      <div class="filters">
-        <button class="filter-btn active" onclick="setFilter('all',this)">All tips</button>
+      <div class="filters" id="filter-bar">
+        <button class="filter-btn active" onclick="setFilter('all',this)" id="filter-all">All tips</button>
         <button class="filter-btn" onclick="setFilter('HawkSoft',this)"><i class="ti ti-database"></i> HawkSoft</button>
         <button class="filter-btn" onclick="setFilter('RingCentral',this)"><i class="ti ti-phone"></i> RingCentral</button>
         <button class="filter-btn" onclick="setFilter('E-Sign',this)"><i class="ti ti-signature"></i> E-Sign</button>
-        <button class="filter-btn" onclick="setFilter('Training',this)"><i class="ti ti-school"></i> Training</button>
-        <button class="filter-btn" onclick="setFilter('Intro',this)"><i class="ti ti-info-circle"></i> Getting started</button>
+        <button class="filter-btn" onclick="setFilter('Intro',this)" id="filter-intro"><i class="ti ti-info-circle"></i> <span id="filter-intro-label">Getting started</span></button>
       </div>
-
       <div class="stats-bar">
-        <div class="stat-chip"><strong id="tip-count">4</strong> tips available</div>
-        <div class="stat-chip">Last updated: <strong>June 2026</strong></div>
+        <div class="stat-chip"><strong id="tip-count">6</strong> <span id="tips-available-label">tips available</span></div>
+        <div class="stat-chip"><span id="last-updated-label">Last updated:</span> <strong>June 2026</strong></div>
       </div>
-
       <div class="tips-grid" id="tips-grid"></div>
       <div class="empty-state" id="empty-state" style="display:none">
         <i class="ti ti-search-off"></i>
-        No tips found for that search. Try different keywords.
+        <span id="empty-label">No tips found for that search. Try different keywords.</span>
       </div>
     </div>
   </div>
 
-  <div class="hub-footer">
+  <div class="hub-footer" id="hub-footer-text">
     Speedy Insurance Agency &mdash; Internal use only &mdash; Managed by Saif (IT) &middot; Ext. 12 &nbsp;|&nbsp;
     <a href="https://calendly.com/speedyinsadmin/30min" target="_blank" style="color:#c0392b;text-decoration:none">Book Training</a> &nbsp;&middot;&nbsp;
     <a href="https://speedy-dashboard-tau.vercel.app/ticket.html" target="_blank" style="color:#c0392b;text-decoration:none">Submit a Ticket</a>
@@ -181,82 +159,167 @@
       <button class="btn-close" onclick="closeModal()" aria-label="Close"><i class="ti ti-x"></i></button>
     </div>
     <div class="modal-body" id="modal-body"></div>
-    <div class="modal-footer">Questions? Contact Saif at speedyinsadmin@gmail.com &middot; Ext. 12</div>
+    <div class="modal-footer" id="modal-footer-text">Questions? Contact Saif at speedyinsadmin@gmail.com &middot; Ext. 12</div>
   </div>
 </div>
 
 <script>
 const PASS = "speedy2024";
+const BADGE_CLASS = {HawkSoft:"badge-HawkSoft",RingCentral:"badge-RingCentral","E-Sign":"badge-E-Sign",Intro:"badge-Intro",Training:"badge-Training"};
 
-const BADGE_CLASS = {
-  HawkSoft:"badge-HawkSoft",
-  RingCentral:"badge-RingCentral",
-  "E-Sign":"badge-E-Sign",
-  Intro:"badge-Intro",
-  Training:"badge-Training"
+let lang = "en";
+let activeFilter = "all";
+
+// ── UI strings per language ──
+const UI = {
+  en: {
+    hubSub: "Your reference library — search any tip, anytime",
+    langBtn: "🇪🇸 Español",
+    bookLabel: "Book Training",
+    ticketLabel: "Submit a Ticket",
+    filterAll: "All tips",
+    filterIntro: "Getting started",
+    tipsAvailable: "tips available",
+    lastUpdated: "Last updated:",
+    emptyLabel: "No tips found for that search. Try different keywords.",
+    readGuide: "Read guide",
+    proTip: "Pro tip:",
+    modalFooter: "Questions? Contact Saif at speedyinsadmin@gmail.com · Ext. 12",
+    searchPlaceholder: "Search tips — try HawkLink, e-sign, click to call...",
+    footerContact: `Speedy Insurance Agency &mdash; Internal use only &mdash; Managed by Saif (IT) &middot; Ext. 12 &nbsp;|&nbsp;<a href="https://calendly.com/speedyinsadmin/30min" target="_blank" style="color:#c0392b;text-decoration:none">Book Training</a> &nbsp;&middot;&nbsp;<a href="https://speedy-dashboard-tau.vercel.app/ticket.html" target="_blank" style="color:#c0392b;text-decoration:none">Submit a Ticket</a>`
+  },
+  es: {
+    hubSub: "Tu biblioteca de referencia — busca cualquier consejo, en cualquier momento",
+    langBtn: "🇺🇸 English",
+    bookLabel: "Reservar Capacitación",
+    ticketLabel: "Enviar un Ticket",
+    filterAll: "Todos",
+    filterIntro: "Para empezar",
+    tipsAvailable: "consejos disponibles",
+    lastUpdated: "Última actualización:",
+    emptyLabel: "No se encontraron consejos. Intenta con otras palabras clave.",
+    readGuide: "Leer guía",
+    proTip: "Consejo pro:",
+    modalFooter: "¿Preguntas? Contacta a Saif: speedyinsadmin@gmail.com · Ext. 12",
+    searchPlaceholder: "Buscar consejos — ej. HawkLink, firma digital, llamar...",
+    footerContact: `Speedy Insurance Agency &mdash; Solo uso interno &mdash; Administrado por Saif (IT) &middot; Ext. 12 &nbsp;|&nbsp;<a href="https://calendly.com/speedyinsadmin/30min" target="_blank" style="color:#c0392b;text-decoration:none">Reservar Capacitación</a> &nbsp;&middot;&nbsp;<a href="https://speedy-dashboard-tau.vercel.app/ticket.html" target="_blank" style="color:#c0392b;text-decoration:none">Enviar Ticket</a>`
+  }
 };
 
+// ── Tips data (EN + ES) ──
 const tips = [
   {
     id:0, num:"#00", category:"Intro",
-    title:"Welcome to the Speedy Tech Tip Series",
-    summary:"What this hub is, why it exists, and how to use it as your go-to reference.",
-    tags:["intro","welcome","reference","hub","getting started"],
-    body:`<p>This hub is your personal reference library for every tool and upgrade at Speedy Insurance. Whenever we roll out something new — or you forget how something works — this is the first place to check.</p>
+    en:{
+      title:"Welcome to the Speedy Tech Tip Series",
+      summary:"What this hub is, why it exists, and how to use it as your go-to reference.",
+      tags:["intro","welcome","reference","hub","getting started"],
+      body:`<p>This hub is your personal reference library for every tool and upgrade at Speedy Insurance. Whenever we roll out something new — or you forget how something works — this is the first place to check.</p>
 <p><strong>How to use it:</strong></p>
 <ol>
-<li>Use the search bar at the top to find tips by keyword — try "HawkLink", "e-sign", or "click to call".</li>
-<li>Use the filter buttons to browse by tool category (HawkSoft, RingCentral, E-Sign, etc.).</li>
+<li>Use the search bar to find tips by keyword — try "HawkLink", "e-sign", or "click to call".</li>
+<li>Use the filter buttons to browse by tool category.</li>
 <li>Click any tip card to read the full step-by-step guide.</li>
-<li>Bookmark this page in Chrome for instant access from any device, anytime.</li>
-</ol>
-<p>New tips are added here as we roll out upgrades — check back regularly.</p>`,
-    pro:"Bookmark this page right now. On Chrome, press Ctrl+D (Windows) or Cmd+D (Mac) and save it to your bookmarks bar."
+<li>Bookmark this page in Chrome for instant access from any device.</li>
+</ol>`,
+      pro:"Bookmark this page right now. On Chrome, press Ctrl+D (Windows) or Cmd+D (Mac) and save it to your bookmarks bar."
+    },
+    es:{
+      title:"Bienvenido a la Serie de Consejos Tecnológicos de Speedy",
+      summary:"Qué es este hub, por qué existe y cómo usarlo como tu referencia principal.",
+      tags:["intro","bienvenida","referencia","hub","empezar"],
+      body:`<p>Este hub es tu biblioteca de referencia personal para todas las herramientas y actualizaciones de Speedy Insurance. Cuando lancemos algo nuevo — o no recuerdes cómo funciona algo — aquí es el primer lugar donde buscar.</p>
+<p><strong>Cómo usarlo:</strong></p>
+<ol>
+<li>Usa la barra de búsqueda para encontrar consejos por palabra clave — prueba "HawkLink", "firma digital" o "llamar".</li>
+<li>Usa los botones de filtro para explorar por categoría de herramienta.</li>
+<li>Haz clic en cualquier tarjeta de consejo para leer la guía completa paso a paso.</li>
+<li>Guarda esta página en favoritos de Chrome para acceso instantáneo desde cualquier dispositivo.</li>
+</ol>`,
+      pro:"Guarda esta página en favoritos ahora mismo. En Chrome, presiona Ctrl+D (Windows) o Cmd+D (Mac) y guárdala en tu barra de favoritos."
+    }
   },
   {
     id:1, num:"#01", category:"HawkSoft",
-    title:"How to use HawkLink to pre-fill carrier forms instantly",
-    summary:"Stop re-typing client info on carrier websites. HawkLink does it in one click.",
-    tags:["hawklink","carrier","prefill","pre-fill","quoting","chrome","extension","form"],
-    body:`<p>HawkLink is a Chrome extension that reads your client's info from HawkSoft and fills it into carrier websites automatically — saving you from retyping the same information over and over.</p>
+    en:{
+      title:"How to use HawkLink to pre-fill carrier forms instantly",
+      summary:"Stop re-typing client info on carrier websites. HawkLink does it in one click.",
+      tags:["hawklink","carrier","prefill","quoting","chrome","extension"],
+      body:`<p>HawkLink is a Chrome extension that reads your client's info from HawkSoft and fills it into carrier websites automatically — no retyping.</p>
 <p><strong>The correct sequence (order matters!):</strong></p>
 <ol>
 <li>Open the client's record in HawkSoft 6.</li>
 <li>In Chrome, go to the carrier's website (e.g. Progressive, Infinity, Bristol West).</li>
 <li>Click the <strong>HawkLink icon</strong> in your Chrome toolbar (top right).</li>
 <li>The client's data fills the form fields automatically.</li>
-</ol>
-<p>That's it — no manual typing required.</p>`,
-    pro:"If HawkLink opens a blank tab instead of filling the form, it means you clicked it before opening a client record or navigating to the carrier site. Always follow the sequence: client record open → carrier site → then click HawkLink."
+</ol>`,
+      pro:"If HawkLink opens a blank tab, you clicked it before opening a client record or navigating to the carrier site. Always follow the sequence: client record open → carrier site → then click HawkLink."
+    },
+    es:{
+      title:"Cómo usar HawkLink para prellenar formularios de aseguradoras al instante",
+      summary:"Deja de escribir la información del cliente. HawkLink lo hace con un clic.",
+      tags:["hawklink","aseguradora","formulario","cotización","chrome"],
+      body:`<p>HawkLink es una extensión de Chrome que lee la información de tu cliente desde HawkSoft y la introduce automáticamente en los sitios web de las aseguradoras — sin necesidad de escribirla de nuevo.</p>
+<p><strong>La secuencia correcta (¡el orden importa!):</strong></p>
+<ol>
+<li>Abre el expediente del cliente en HawkSoft 6.</li>
+<li>En Chrome, ve al sitio web de la aseguradora (ej. Progressive, Infinity, Bristol West).</li>
+<li>Haz clic en el <strong>ícono de HawkLink</strong> en la barra de herramientas de Chrome (arriba a la derecha).</li>
+<li>Los datos del cliente llenan los campos del formulario automáticamente.</li>
+</ol>`,
+      pro:"Si HawkLink abre una pestaña en blanco, lo hiciste clic antes de abrir un expediente de cliente o de navegar al sitio de la aseguradora. Sigue siempre la secuencia: expediente abierto → sitio de aseguradora → luego clic en HawkLink."
+    }
   },
   {
     id:2, num:"#02", category:"RingCentral",
-    title:"Click-to-call and text clients directly from HawkSoft",
-    summary:"Call or text any client from their HawkSoft record — no dialing, auto-logged.",
-    tags:["ringcentral","click to call","text","sms","hawksoft","call log","phone","dial"],
-    body:`<p>RingCentral is now integrated with HawkSoft 6. Every call and text you make from a client record is automatically logged to their activity history — no manual notes needed.</p>
+    en:{
+      title:"Call & text clients directly from HawkSoft",
+      summary:"No dialing. Auto-logged. Every call and text through HawkSoft.",
+      tags:["ringcentral","click to call","text","sms","hawksoft","call log","phone"],
+      body:`<p>RingCentral is connected to HawkSoft 6. Every call and text you make from a client record is automatically logged — no manual notes needed.</p>
 <p><strong>How to call a client:</strong></p>
 <ol>
 <li>Open the client's record in HawkSoft 6.</li>
-<li>Click the phone number shown on the record.</li>
-<li>Your RingCentral app will open and dial automatically.</li>
-<li>When the call ends, it is automatically logged to the client's activity.</li>
+<li>Click the phone number on the record.</li>
+<li>RingCentral opens and dials automatically.</li>
+<li>Call ends → automatically logged to the client's activity history.</li>
 </ol>
-<p><strong>How to send a text:</strong></p>
+<p><strong>How to text a client:</strong></p>
 <ol>
 <li>Open the client's record in HawkSoft 6.</li>
-<li>Click the message/SMS icon next to the phone number.</li>
-<li>Type your message and send — it goes directly to the client's cell phone.</li>
-<li>The text thread is saved to the client's record automatically.</li>
+<li>Click the SMS/message icon next to the phone number.</li>
+<li>Type your message and send — logged automatically.</li>
 </ol>`,
-    pro:"Always call through HawkSoft — never your personal phone — so every contact is tracked and you get full credit for your activity. This also protects you: your personal number stays private."
+      pro:"Always call and text through HawkSoft — never your personal phone. Every contact gets tracked, you get full credit for your activity, and your personal number stays private."
+    },
+    es:{
+      title:"Llama y envía mensajes a clientes directamente desde HawkSoft",
+      summary:"Sin marcar números. Registro automático. Todas las llamadas y mensajes por HawkSoft.",
+      tags:["ringcentral","llamar","mensaje","sms","hawksoft","registro","teléfono"],
+      body:`<p>RingCentral está conectado a HawkSoft 6. Cada llamada y mensaje que hagas desde el expediente de un cliente se registra automáticamente — sin necesidad de notas manuales.</p>
+<p><strong>Cómo llamar a un cliente:</strong></p>
+<ol>
+<li>Abre el expediente del cliente en HawkSoft 6.</li>
+<li>Haz clic en el número de teléfono del expediente.</li>
+<li>RingCentral se abre y marca automáticamente.</li>
+<li>La llamada termina → se registra automáticamente en el historial de actividad del cliente.</li>
+</ol>
+<p><strong>Cómo enviar un mensaje de texto a un cliente:</strong></p>
+<ol>
+<li>Abre el expediente del cliente en HawkSoft 6.</li>
+<li>Haz clic en el ícono de SMS/mensaje junto al número de teléfono.</li>
+<li>Escribe tu mensaje y envíalo — se registra automáticamente.</li>
+</ol>`,
+      pro:"Siempre llama y envía mensajes a través de HawkSoft — nunca desde tu teléfono personal. Cada contacto queda registrado, obtienes crédito completo por tu actividad y tu número personal permanece privado."
+    }
   },
   {
     id:3, num:"#03", category:"E-Sign",
-    title:"Send e-signatures without leaving the client record",
-    summary:"Get documents signed digitally in minutes using InsureSign inside HawkSoft.",
-    tags:["esign","e-sign","insuresign","signature","documents","hawksoft","sign","digital"],
-    body:`<p>InsureSign is built directly into HawkSoft 6. You can send any document for electronic signature from the client's record — no printing, scanning, or leaving the app required.</p>
+    en:{
+      title:"Send e-signatures without leaving the client record",
+      summary:"Get documents signed digitally in minutes using InsureSign inside HawkSoft.",
+      tags:["esign","e-sign","insuresign","signature","documents","hawksoft","sign","digital"],
+      body:`<p>InsureSign is built directly into HawkSoft 6. Send any document for electronic signature from the client's record — no printing, scanning, or leaving the app.</p>
 <p><strong>How to send a document for e-signature:</strong></p>
 <ol>
 <li>Open the client's record in HawkSoft 6.</li>
@@ -264,47 +327,76 @@ const tips = [
 <li>Select the document you need signed.</li>
 <li>Click <strong>"Send for E-Signature"</strong>.</li>
 <li>Enter the client's email address and click Send.</li>
-<li>The client receives an email with a link — they click it and sign on their phone or computer.</li>
+<li>The client receives a link and signs on their phone or computer.</li>
 <li>The signed copy is automatically saved back to their HawkSoft record.</li>
-</ol>
-<p>The whole process takes under 2 minutes for the client.</p>`,
-    pro:"When a client says they can't come into the office, lead with e-sign. Most clients can sign from their phone in under 2 minutes — it removes the biggest barrier to closing."
+</ol>`,
+      pro:"When a client says they can't come in, lead with e-sign. Most clients can sign from their phone in under 2 minutes — it removes the biggest barrier to closing."
+    },
+    es:{
+      title:"Envía firmas electrónicas sin salir del expediente del cliente",
+      summary:"Obtén documentos firmados digitalmente en minutos usando InsureSign dentro de HawkSoft.",
+      tags:["firma","electronica","insuresign","documentos","hawksoft","firmar","digital"],
+      body:`<p>InsureSign está integrado directamente en HawkSoft 6. Envía cualquier documento para firma electrónica desde el expediente del cliente — sin imprimir, escanear ni salir de la aplicación.</p>
+<p><strong>Cómo enviar un documento para firma electrónica:</strong></p>
+<ol>
+<li>Abre el expediente del cliente en HawkSoft 6.</li>
+<li>Ve a la pestaña de <strong>Documentos</strong>.</li>
+<li>Selecciona el documento que necesitas que firmen.</li>
+<li>Haz clic en <strong>"Enviar para Firma Electrónica"</strong>.</li>
+<li>Ingresa el correo electrónico del cliente y haz clic en Enviar.</li>
+<li>El cliente recibe un enlace y firma desde su teléfono o computadora.</li>
+<li>La copia firmada se guarda automáticamente en el expediente de HawkSoft.</li>
+</ol>`,
+      pro:"Cuando un cliente diga que no puede venir a la oficina, ofrece la firma electrónica. La mayoría de los clientes pueden firmar desde su teléfono en menos de 2 minutos — elimina la mayor barrera para cerrar la venta."
+    }
   },
   {
     id:4, num:"#04", category:"HawkSoft",
-    title:"Send emails to clients directly from HawkSoft",
-    summary:"Your Gmail is connected to HawkSoft — every email auto-logged, no app switching.",
-    tags:["email","gmail","hawksoft","log","client","send","communication"],
-    body:`<p>Your Gmail account is linked to HawkSoft 6. Send emails to clients directly from their record — no switching apps, and every email is automatically saved to the client's activity history.</p>
+    en:{
+      title:"Send emails to clients directly from HawkSoft",
+      summary:"Your Gmail is connected to HawkSoft — every email auto-logged, no app switching.",
+      tags:["email","gmail","hawksoft","log","client","send","communication"],
+      body:`<p>Your Gmail account is linked to HawkSoft 6. Send emails to clients directly from their record — no switching apps, and every email is automatically saved to the client's activity history.</p>
 <p><strong>How to email a client from HawkSoft:</strong></p>
 <ol>
 <li>Open the client's record in HawkSoft 6.</li>
 <li>Click the <strong>email address or email icon</strong> on the record.</li>
-<li>Gmail compose window opens with the client's address <strong>pre-filled</strong>.</li>
+<li>Gmail compose window opens with the client's address pre-filled.</li>
 <li>Type your message and send.</li>
-<li>The email is <strong>automatically logged</strong> to the client's activity history.</li>
-</ol>
-<p><strong>Why this matters:</strong></p>
-<ul>
-<li>No switching between HawkSoft and Gmail manually.</li>
-<li>Every email is tracked — full communication history per client.</li>
-<li>No risk of emailing the wrong person — address comes directly from the record.</li>
-</ul>`,
-    pro:"Never email clients from your personal account. Always send through HawkSoft so every communication is on file. This protects you and keeps agency records clean."
+<li>The email is automatically logged to the client's activity history.</li>
+</ol>`,
+      pro:"Never email clients from your personal account. Always send through HawkSoft so every communication is on file. This protects you and keeps agency records clean."
+    },
+    es:{
+      title:"Envía correos a clientes directamente desde HawkSoft",
+      summary:"Tu Gmail está conectado a HawkSoft — cada correo se registra automáticamente.",
+      tags:["correo","gmail","hawksoft","registro","cliente","enviar","comunicación"],
+      body:`<p>Tu cuenta de Gmail está vinculada a HawkSoft 6. Envía correos a clientes directamente desde su expediente — sin cambiar de aplicación, y cada correo se guarda automáticamente en el historial de actividad del cliente.</p>
+<p><strong>Cómo enviar un correo a un cliente desde HawkSoft:</strong></p>
+<ol>
+<li>Abre el expediente del cliente en HawkSoft 6.</li>
+<li>Haz clic en la <strong>dirección de correo o el ícono de correo</strong> en el expediente.</li>
+<li>La ventana de redacción de Gmail se abre con la dirección del cliente ya rellenada.</li>
+<li>Escribe tu mensaje y envíalo.</li>
+<li>El correo se registra automáticamente en el historial de actividad del cliente.</li>
+</ol>`,
+      pro:"Nunca envíes correos a clientes desde tu cuenta personal. Siempre envía a través de HawkSoft para que toda la comunicación quede archivada. Esto te protege y mantiene los registros de la agencia limpios."
+    }
   },
   {
     id:5, num:"#05", category:"RingCentral",
-    title:"Know who's calling before you even answer",
-    summary:"RingCentral Screen Pop opens the client's HawkSoft record automatically when they call.",
-    tags:["screen pop","ringcentral","hawksoft","incoming call","caller id","pop","screen","call"],
-    body:`<p>When a client calls your branch, HawkSoft automatically opens their record on your screen before you pick up. This is called a <strong>screen pop</strong> — and it's live on all 4 branches right now.</p>
+    en:{
+      title:"Know who's calling before you even answer",
+      summary:"RingCentral Screen Pop opens the client's HawkSoft record automatically when they call.",
+      tags:["screen pop","ringcentral","hawksoft","incoming call","caller id","pop","screen","call"],
+      body:`<p>When a client calls your branch, HawkSoft automatically opens their record on your screen before you pick up — this is called a <strong>screen pop</strong>.</p>
 <p><strong>How it works:</strong></p>
 <ol>
 <li>A client calls your branch number.</li>
-<li>Your screen <strong>automatically opens</strong> the client's HawkSoft record.</li>
-<li>You see their <strong>name, policy, and history</strong> before you answer.</li>
+<li>Your screen automatically opens the client's HawkSoft record.</li>
+<li>You see their name, policy, and history before you answer.</li>
 <li>Answer the call through RingCentral as normal.</li>
-<li>The call is <strong>automatically logged</strong> to the client's record when it ends.</li>
+<li>The call is automatically logged when it ends.</li>
 </ol>
 <p><strong>What you'll see before you answer:</strong></p>
 <ul>
@@ -313,11 +405,34 @@ const tips = [
 <li>Recent activity and notes.</li>
 <li>Outstanding tasks or upcoming renewal dates.</li>
 </ul>`,
-    pro:"Use the 2–3 seconds while the phone rings to scan the client's record. Walk them through their details without putting them on hold. Clients feel recognized — that's how you build loyalty."
+      pro:"Use the 2–3 seconds while the phone rings to scan the client's record. Walk them through their details without putting them on hold. Clients feel recognized — that's how you build loyalty."
+    },
+    es:{
+      title:"Sabe quién llama antes de contestar",
+      summary:"La función Screen Pop de RingCentral abre el expediente del cliente automáticamente cuando llama.",
+      tags:["screen pop","ringcentral","hawksoft","llamada entrante","identificador","pantalla","llamada"],
+      body:`<p>Cuando un cliente llama a tu sucursal, HawkSoft abre automáticamente su expediente en tu pantalla antes de que contestes — esto se llama <strong>screen pop</strong>.</p>
+<p><strong>Cómo funciona:</strong></p>
+<ol>
+<li>Un cliente llama a tu número de sucursal.</li>
+<li>Tu pantalla abre automáticamente el expediente del cliente en HawkSoft.</li>
+<li>Ves su nombre, póliza e historial antes de contestar.</li>
+<li>Contesta la llamada a través de RingCentral normalmente.</li>
+<li>La llamada se registra automáticamente cuando termina.</li>
+</ol>
+<p><strong>Lo que verás antes de contestar:</strong></p>
+<ul>
+<li>Nombre e información de contacto del cliente.</li>
+<li>Pólizas y cobertura actuales.</li>
+<li>Actividad reciente y notas.</li>
+<li>Tareas pendientes o fechas de renovación próximas.</li>
+</ul>`,
+      pro:"Usa los 2–3 segundos mientras suena el teléfono para revisar el expediente del cliente. Guíalos por sus detalles sin ponerlos en espera. Los clientes se sienten reconocidos — así es como construyes lealtad."
+    }
   }
 ];
 
-let activeFilter = "all";
+function getTip(t){ return lang==="es" ? t.es : t.en; }
 
 function tryLogin(){
   const v = document.getElementById("pw-input").value.trim();
@@ -329,7 +444,7 @@ function tryLogin(){
     hub.style.flexDirection="column";
     filterTips();
   } else {
-    err.textContent="Incorrect password. Please try again.";
+    err.textContent = lang==="es" ? "Contraseña incorrecta. Intenta de nuevo." : "Incorrect password. Please try again.";
     document.getElementById("pw-input").value="";
     document.getElementById("pw-input").focus();
   }
@@ -344,6 +459,24 @@ function logout(){
   document.getElementById("pw-error").textContent="";
 }
 
+function toggleLang(){
+  lang = lang==="en" ? "es" : "en";
+  const u = UI[lang];
+  document.getElementById("lang-btn").textContent = u.langBtn;
+  document.getElementById("hub-sub-text").textContent = u.hubSub;
+  document.getElementById("book-label").textContent = u.bookLabel;
+  document.getElementById("ticket-label").textContent = u.ticketLabel;
+  document.getElementById("filter-all").textContent = u.filterAll;
+  document.getElementById("filter-intro-label").textContent = u.filterIntro;
+  document.getElementById("tips-available-label").textContent = u.tipsAvailable;
+  document.getElementById("last-updated-label").textContent = u.lastUpdated;
+  document.getElementById("empty-label").textContent = u.emptyLabel;
+  document.getElementById("search-input").placeholder = u.searchPlaceholder;
+  document.getElementById("hub-footer-text").innerHTML = u.footerContact;
+  document.getElementById("modal-footer-text").textContent = u.modalFooter;
+  filterTips();
+}
+
 function setFilter(cat, btn){
   activeFilter = cat;
   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
@@ -354,11 +487,12 @@ function setFilter(cat, btn){
 function filterTips(){
   const q = document.getElementById("search-input").value.toLowerCase().trim();
   const filtered = tips.filter(t=>{
+    const d = getTip(t);
     const matchCat = activeFilter==="all" || t.category===activeFilter;
     const matchQ = !q ||
-      t.title.toLowerCase().includes(q) ||
-      t.summary.toLowerCase().includes(q) ||
-      t.tags.some(tg=>tg.includes(q)) ||
+      d.title.toLowerCase().includes(q) ||
+      d.summary.toLowerCase().includes(q) ||
+      d.tags.some(tg=>tg.includes(q)) ||
       t.category.toLowerCase().includes(q);
     return matchCat && matchQ;
   });
@@ -369,31 +503,31 @@ function filterTips(){
 function renderTips(list){
   const grid = document.getElementById("tips-grid");
   const empty = document.getElementById("empty-state");
-  if(!list.length){
-    grid.innerHTML="";
-    empty.style.display="block";
-    return;
-  }
+  const u = UI[lang];
+  if(!list.length){ grid.innerHTML=""; empty.style.display="block"; return; }
   empty.style.display="none";
-  grid.innerHTML = list.map(t=>`
-    <div class="tip-card" onclick="openTip(${t.id})" role="button" tabindex="0">
+  grid.innerHTML = list.map(t=>{
+    const d = getTip(t);
+    return `<div class="tip-card" onclick="openTip(${t.id})" role="button" tabindex="0">
       <div class="tip-card-top">
         <span class="tip-badge ${BADGE_CLASS[t.category]}">${t.category}</span>
         <span class="tip-num">Tip ${t.num}</span>
       </div>
-      <h3>${t.title}</h3>
-      <p>${t.summary}</p>
-      <div class="tip-card-footer"><i class="ti ti-arrow-right"></i> Read guide</div>
-    </div>
-  `).join("");
+      <h3>${d.title}</h3>
+      <p>${d.summary}</p>
+      <div class="tip-card-footer"><i class="ti ti-arrow-right"></i> ${u.readGuide}</div>
+    </div>`;
+  }).join("");
 }
 
 function openTip(id){
   const t = tips.find(x=>x.id===id);
-  if(!t)return;
+  if(!t) return;
+  const d = getTip(t);
+  const u = UI[lang];
   document.getElementById("modal-cat-badge").innerHTML=`<span class="tip-badge ${BADGE_CLASS[t.category]}" style="display:inline-block;margin-bottom:10px">${t.category} · Tip ${t.num}</span>`;
-  document.getElementById("modal-title").textContent = t.title;
-  document.getElementById("modal-body").innerHTML = t.body + (t.pro ? `<div class="pro-tip"><i class="ti ti-bulb pro-tip-icon"></i><p><strong>Pro tip:</strong> ${t.pro}</p></div>` : "");
+  document.getElementById("modal-title").textContent = d.title;
+  document.getElementById("modal-body").innerHTML = d.body + (d.pro ? `<div class="pro-tip"><i class="ti ti-bulb pro-tip-icon"></i><p><strong>${u.proTip}</strong> ${d.pro}</p></div>` : "");
   document.getElementById("modal-overlay").classList.add("open");
   document.body.style.overflow="hidden";
 }
@@ -402,11 +536,7 @@ function closeModal(){
   document.getElementById("modal-overlay").classList.remove("open");
   document.body.style.overflow="";
 }
-
-function closeModalOutside(e){
-  if(e.target===document.getElementById("modal-overlay"))closeModal();
-}
-
+function closeModalOutside(e){ if(e.target===document.getElementById("modal-overlay"))closeModal(); }
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 </script>
 </body>

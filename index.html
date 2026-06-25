@@ -129,6 +129,7 @@
         <button class="filter-btn" onclick="setFilter('HawkSoft',this)"><i class="ti ti-database"></i> HawkSoft</button>
         <button class="filter-btn" onclick="setFilter('RingCentral',this)"><i class="ti ti-phone"></i> RingCentral</button>
         <button class="filter-btn" onclick="setFilter('E-Sign',this)"><i class="ti ti-signature"></i> E-Sign</button>
+        <button class="filter-btn" onclick="setFilter('Email',this)"><i class="ti ti-mail"></i> Email Templates</button>
         <button class="filter-btn" onclick="setFilter('Intro',this)" id="filter-intro"><i class="ti ti-info-circle"></i> <span id="filter-intro-label">Getting started</span></button>
       </div>
       <div class="stats-bar">
@@ -165,7 +166,7 @@
 
 <script>
 const PASS = "speedy2024";
-const BADGE_CLASS = {HawkSoft:"badge-HawkSoft",RingCentral:"badge-RingCentral","E-Sign":"badge-E-Sign",Intro:"badge-Intro",Training:"badge-Training"};
+const BADGE_CLASS = {HawkSoft:"badge-HawkSoft",RingCentral:"badge-RingCentral","E-Sign":"badge-E-Sign",Email:"badge-HawkSoft",Intro:"badge-Intro",Training:"badge-Training"};
 
 let lang = "en";
 let activeFilter = "all";
@@ -429,8 +430,81 @@ const tips = [
 </ul>`,
       pro:"Usa los 2–3 segundos mientras suena el teléfono para revisar el expediente del cliente. Guíalos por sus detalles sin ponerlos en espera. Los clientes se sienten reconocidos — así es como construyes lealtad."
     }
+  },
+  {
+    id:6, num:"#06", category:"Email",
+    en:{
+      title:"How to use HawkSoft email templates — and why they matter",
+      summary:"Send professional branded emails in seconds. No typing, no formatting, no mistakes.",
+      body:`<p>Speedy Insurance now has a set of branded email templates built directly into HawkSoft. Every template automatically fills in the client's name, policy details, and your contact information — all you do is select it and hit send.</p>
+
+<p><strong>Why this matters:</strong></p>
+<ul>
+<li><strong>Professionalism.</strong> Every client gets a clean, branded email with the Speedy logo — not a plain text message that looks like it came from a personal Gmail.</li>
+<li><strong>Speed.</strong> What used to take 3–5 minutes of typing now takes 10 seconds.</li>
+<li><strong>Consistency.</strong> Every agent sends the same message. No missing information, no different wording across branches.</li>
+<li><strong>Auto-logged.</strong> Because it's sent from HawkSoft, the email is automatically saved to the client's activity history — no manual notes needed.</li>
+<li><strong>Your signature is automatic.</strong> The template uses your logged-in HawkSoft account to fill your name, email, and phone in the footer — the client always knows exactly who to contact back.</li>
+</ul>
+
+<p><strong>Available templates:</strong></p>
+<ul>
+<li><strong>T1 — ID Card Email:</strong> Send after binding. Gives client their policy number, carrier, effective and expiration dates.</li>
+<li><strong>T3 — Policy Confirmation:</strong> Confirm the policy is active with a full summary and next steps.</li>
+<li><strong>T4 — SR-22 Filing Confirmation:</strong> Notify the client their SR-22 has been filed with the DMV. Includes important reminders about keeping continuous coverage.</li>
+<li><strong>T5 — Renewal Reminder:</strong> Send 30–45 days before expiration. Prompts the client to review their options before it lapses.</li>
+<li><strong>T6 — Payment Reminder:</strong> Remind the client of an upcoming or missed payment with carrier payment instructions.</li>
+<li><strong>T7 — DMV Service Confirmation:</strong> Confirm a completed DMV transaction and remind the client of all other DMV services available.</li>
+<li><strong>T0 — General Template:</strong> Use this for any other situation. Has the full Speedy branding, a customizable message area, and your signature in the footer.</li>
+</ul>
+
+<p><strong>How to send a template:</strong></p>
+<ol>
+<li>Open the client's record in HawkSoft 6.</li>
+<li>Click <strong>Email</strong> in the client record toolbar.</li>
+<li>Click the <strong>Template</strong> dropdown and select the template you need.</li>
+<li>Review the email — all merge fields will be filled automatically.</li>
+<li>Add any personal note if needed, then click <strong>Send</strong>.</li>
+</ol>`,
+      pro:"Always open the client record first before selecting a template — this ensures all merge fields (name, policy number, dates) fill in correctly. If a field shows the merge code instead of real data, the information may be missing from the client record."
+    },
+    es:{
+      title:"Cómo usar las plantillas de correo de HawkSoft — y por qué son importantes",
+      summary:"Envía correos profesionales con la marca de Speedy en segundos. Sin escribir, sin formatear, sin errores.",
+      body:`<p>Speedy Insurance ahora tiene plantillas de correo electrónico con nuestra marca integradas directamente en HawkSoft. Cada plantilla rellena automáticamente el nombre del cliente, los detalles de la póliza y tu información de contacto — tú solo seleccionas y envías.</p>
+
+<p><strong>Por qué esto importa:</strong></p>
+<ul>
+<li><strong>Profesionalismo.</strong> Cada cliente recibe un correo limpio con el logo de Speedy — no un mensaje de texto plano que parece venir de un Gmail personal.</li>
+<li><strong>Velocidad.</strong> Lo que antes tomaba 3–5 minutos de escritura ahora toma 10 segundos.</li>
+<li><strong>Consistencia.</strong> Cada agente envía el mismo mensaje. Sin información faltante, sin redacción diferente entre sucursales.</li>
+<li><strong>Registro automático.</strong> Como se envía desde HawkSoft, el correo se guarda automáticamente en el historial de actividad del cliente.</li>
+<li><strong>Tu firma es automática.</strong> La plantilla usa tu cuenta de HawkSoft para poner tu nombre, correo y teléfono en el pie de página.</li>
+</ul>
+
+<p><strong>Plantillas disponibles:</strong></p>
+<ul>
+<li><strong>T1 — Correo de tarjeta de ID:</strong> Enviar después de vincular. Da al cliente su número de póliza, aseguradora, fechas de vigencia y vencimiento.</li>
+<li><strong>T3 — Confirmación de póliza:</strong> Confirma que la póliza está activa con un resumen completo.</li>
+<li><strong>T4 — Confirmación de presentación SR-22:</strong> Notifica al cliente que su SR-22 fue presentado ante el DMV.</li>
+<li><strong>T5 — Recordatorio de renovación:</strong> Enviar 30–45 días antes del vencimiento.</li>
+<li><strong>T6 — Recordatorio de pago:</strong> Recordar al cliente un pago próximo o vencido.</li>
+<li><strong>T7 — Confirmación de servicio DMV:</strong> Confirmar una transacción de DMV completada.</li>
+<li><strong>T0 — Plantilla general:</strong> Para cualquier otra situación. Tiene toda la marca de Speedy y un área de mensaje personalizable.</li>
+</ul>
+
+<p><strong>Cómo enviar una plantilla:</strong></p>
+<ol>
+<li>Abre el expediente del cliente en HawkSoft 6.</li>
+<li>Haz clic en <strong>Email</strong> en la barra de herramientas del expediente.</li>
+<li>Haz clic en el menú desplegable <strong>Plantilla</strong> y selecciona la que necesitas.</li>
+<li>Revisa el correo — todos los campos se rellenarán automáticamente.</li>
+<li>Agrega una nota personal si es necesario, luego haz clic en <strong>Enviar</strong>.</li>
+</ol>`,
+      pro:"Siempre abre primero el expediente del cliente antes de seleccionar una plantilla — esto garantiza que todos los campos (nombre, número de póliza, fechas) se rellenen correctamente."
+    }
   }
-];
+]
 
 function getTip(t){ return lang==="es" ? t.es : t.en; }
 

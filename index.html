@@ -56,6 +56,7 @@
   .tip-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
   .badge-HawkSoft{background:#fef3c7;color:#92400e}
   .badge-RingCentral{background:#dbeafe;color:#1e40af}
+  .badge-Chat{background:#dcfce7;color:#166534}
   .badge-E-Sign{background:#d1fae5;color:#065f46}
   .badge-Intro{background:#f3f4f6;color:#374151}
   .badge-Training{background:#ede9fe;color:#5b21b6}
@@ -130,6 +131,7 @@
         <button class="filter-btn" onclick="setFilter('RingCentral',this)"><i class="ti ti-phone"></i> RingCentral</button>
         <button class="filter-btn" onclick="setFilter('E-Sign',this)"><i class="ti ti-signature"></i> E-Sign</button>
         <button class="filter-btn" onclick="setFilter('Email',this)"><i class="ti ti-mail"></i> Email Templates</button>
+        <button class="filter-btn" onclick="setFilter('Chat',this)"><i class="ti ti-message-circle"></i> Live Chat</button>
         <button class="filter-btn" onclick="setFilter('Intro',this)" id="filter-intro"><i class="ti ti-info-circle"></i> <span id="filter-intro-label">Getting started</span></button>
       </div>
       <div class="stats-bar">
@@ -166,7 +168,7 @@
 
 <script>
 const PASS = "speedy2024";
-const BADGE_CLASS = {HawkSoft:"badge-HawkSoft",RingCentral:"badge-RingCentral","E-Sign":"badge-E-Sign",Email:"badge-HawkSoft",Intro:"badge-Intro",Training:"badge-Training"};
+const BADGE_CLASS = {HawkSoft:"badge-HawkSoft",RingCentral:"badge-RingCentral","E-Sign":"badge-E-Sign",Email:"badge-HawkSoft",Intro:"badge-Intro",Training:"badge-Training",Chat:"badge-Chat"};
 
 let lang = "en";
 let activeFilter = "all";
@@ -502,6 +504,59 @@ const tips = [
 <li>Agrega una nota personal si es necesario, luego haz clic en <strong>Enviar</strong>.</li>
 </ol>`,
       pro:"Siempre abre primero el expediente del cliente antes de seleccionar una plantilla — esto garantiza que todos los campos (nombre, número de póliza, fechas) se rellenen correctamente."
+    }
+  },
+  {
+    id:7, num:"#07", category:"Chat",
+    en:{
+      title:"Live chat on your PC — setup + shortcuts",
+      summary:"Install the desktop app, set your sounds so you never miss a chat, and answer in seconds with shortcuts.",
+      tags:["chat","tawk","live chat","shortcuts","notifications","desktop app","setup","website"],
+      body:`<p>Website visitors chat with us through tawk.to. Every chat is a potential quote — this is how you set up your PC so you never miss one, and answer fast.</p>
+<p><strong>Step 1 — Install the desktop app (one time):</strong></p>
+<ol>
+<li>Go to <strong>www.tawk.to/tawk-to-for-windows</strong> and click <strong>GET APP</strong>, then run the installer.</li>
+<li>Log in with your tawk.to email and password (the invite you accepted).</li>
+<li>In the app's <strong>Settings</strong> (gear icon), turn ON <strong>Launch on startup</strong> — the app now runs every time your PC starts.</li>
+</ol>
+<p><strong>Step 2 — Set your sounds (exact settings):</strong></p>
+<ol>
+<li>Click your <strong>profile picture</strong> (bottom-left) → <strong>Notification Preferences</strong>.</li>
+<li>Sound: <strong>ON</strong> · Desktop notifications: <strong>ON</strong>.</li>
+<li>New Chat → Volume <strong>100%</strong>, Repeat <strong>Forever</strong> (it stops the moment anyone answers).</li>
+<li>New Visitor → Sound: <strong>None</strong> (leave it — this is not a chat).</li>
+<li>New Message → Volume <strong>100%</strong>. Then <strong>Save</strong>.</li>
+<li>Also check Windows: Settings → System → Notifications → <strong>Do Not Disturb OFF</strong>, speaker volume up.</li>
+</ol>
+<p><strong>Step 3 — Answer fast with shortcuts:</strong></p>
+<p>In any chat, type <strong>/</strong> and pick from the menu — the full message sends instantly. English: /welcome · /hours · /locations · /quote · /sr22 · /dmv · /payment · /callback · /hold · /thanks. Español: /bienvenido · /horario · /ubicaciones · /cotizar · /sr22es · /dmves · /pago · /llamada · /espere · /gracias.</p>
+<p><strong>The one rule:</strong> every agent hears every new chat. First to click <strong>Join</strong> takes it — the ringing stops for everyone else. If you're free, claim it.</p>`,
+      pro:"Type / alone in any chat to see the full shortcut menu — you never have to memorize the names."
+    },
+    es:{
+      title:"Chat en vivo en tu PC — instalación + atajos",
+      summary:"Instala la aplicación de escritorio, configura tus sonidos para no perder ningún chat, y responde en segundos con atajos.",
+      tags:["chat","tawk","chat en vivo","atajos","notificaciones","aplicación","instalación","sitio web"],
+      body:`<p>Los visitantes del sitio web chatean con nosotros a través de tawk.to. Cada chat es una cotización potencial — así configuras tu PC para no perder ninguno y responder rápido.</p>
+<p><strong>Paso 1 — Instala la aplicación de escritorio (una sola vez):</strong></p>
+<ol>
+<li>Ve a <strong>www.tawk.to/tawk-to-for-windows</strong> y haz clic en <strong>GET APP</strong>, luego ejecuta el instalador.</li>
+<li>Inicia sesión con tu correo y contraseña de tawk.to (la invitación que aceptaste).</li>
+<li>En <strong>Settings</strong> (ícono de engranaje), activa <strong>Launch on startup</strong> — la app se abrirá cada vez que enciendas tu PC.</li>
+</ol>
+<p><strong>Paso 2 — Configura tus sonidos (ajustes exactos):</strong></p>
+<ol>
+<li>Haz clic en tu <strong>foto de perfil</strong> (abajo a la izquierda) → <strong>Notification Preferences</strong>.</li>
+<li>Sound: <strong>ON</strong> · Desktop notifications: <strong>ON</strong>.</li>
+<li>New Chat → Volumen <strong>100%</strong>, Repeat <strong>Forever</strong> (se detiene en cuanto alguien responde).</li>
+<li>New Visitor → Sound: <strong>None</strong> (déjalo así — eso no es un chat).</li>
+<li>New Message → Volumen <strong>100%</strong>. Luego <strong>Save</strong>.</li>
+<li>Revisa también Windows: Configuración → Sistema → Notificaciones → <strong>No molestar APAGADO</strong>, volumen audible.</li>
+</ol>
+<p><strong>Paso 3 — Responde rápido con atajos:</strong></p>
+<p>En cualquier chat, escribe <strong>/</strong> y elige del menú — el mensaje completo se envía al instante. Español: /bienvenido · /horario · /ubicaciones · /cotizar · /sr22es · /dmves · /pago · /llamada · /espere · /gracias. English: /welcome · /hours · /locations · /quote · /sr22 · /dmv · /payment · /callback · /hold · /thanks.</p>
+<p><strong>La única regla:</strong> todos los agentes escuchan cada chat nuevo. El primero en hacer clic en <strong>Join</strong> se lo queda — el sonido se detiene para los demás. Si estás libre, tómalo.</p>`,
+      pro:"Escribe / solo en cualquier chat para ver el menú completo de atajos — no necesitas memorizar los nombres."
     }
   }
 ]

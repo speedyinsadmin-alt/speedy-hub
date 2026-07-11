@@ -595,8 +595,8 @@ const tips = [
   {
     id:9, num:"#09", category:"RingCentral",
     en:{
-      title:"Headset setup: pair it and turn off the desk phone toggle",
-      summary:"Got a headset? Two things make it work: pairing it to the computer, and one RingCentral setting almost everyone misses.",
+      title:"Headset setup: pair it and turn off Deskphone pairing",
+      summary:"Got a headset? Two things make it work: pairing it to the computer, and turning off one RingCentral setting almost everyone misses.",
       tags:["headset","bluetooth","audio","desk phone","ringcentral","pair","microphone","speaker","blueparrott"],
       body:`<p>A headset only works with RingCentral if two things are true: it's paired to your <strong>computer</strong> (not your cell phone), and RingCentral is set to use the <strong>computer</strong> for calls (not the desk phone). Miss either one and your calls keep ringing somewhere else.</p>
 <p><strong>Step 1 — Pair the headset to your computer:</strong></p>
@@ -606,18 +606,19 @@ const tips = [
 <li>On the computer: <strong>Settings → Bluetooth &amp; devices → Add device → Bluetooth</strong> → select your headset.</li>
 <li>If your headset came with a USB dongle, skip all of that — plug the dongle in and turn the headset on.</li>
 </ol>
-<p><strong>Step 2 — The desk phone toggle (the one everyone misses):</strong></p>
+<p><strong>Step 2 — Turn off Deskphone pairing (the one everyone misses):</strong></p>
 <ol>
 <li>Open the RingCentral desktop app → <strong>Settings (gear) → Phone</strong>.</li>
-<li>Find <strong>"Make and receive calls using."</strong></li>
-<li>If it says <strong>Desk phone</strong> — switch it to <strong>This computer / RingCentral app</strong>. Otherwise calls keep ringing the desk phone no matter what headset you connect.</li>
+<li>Scroll down to <strong>"Deskphone pairing."</strong></li>
+<li>If the toggle is ON (blue) — turn it <strong>OFF</strong>. When it's on, call audio goes through the paired desk phone no matter what headset you connect.</li>
+<li>While you're there, check <strong>"Default phone app for calling"</strong> near the top — it should say <strong>"Use RingCentral (this app)."</strong></li>
 </ol>
 <p><strong>Step 3 — Point RingCentral at the headset:</strong> Settings → <strong>Audio</strong> → set Microphone and Speaker to your headset. Leave the Ringer on computer speakers if you also want to hear calls ring out loud.</p>
 <p><strong>Step 4 — Test:</strong> call your own cell or ask a teammate to ring your extension. You should hear and be heard through the headset.</p>`,
-      pro:"If it suddenly stops working days later, check two things first: the desk phone toggle flipped back on, or the headset auto-connected to your cell phone instead of the computer. Unpair it from your cell if you ever paired it there."
+      pro:"If it suddenly stops working days later, check two things first: Deskphone pairing flipped back on, or the headset auto-connected to your cell phone instead of the computer. Unpair it from your cell if you ever paired it there."
     },
     es:{
-      title:"Configura tu diadema: emparéjala y apaga la opción de teléfono de escritorio",
+      title:"Configura tu diadema: emparéjala y apaga Deskphone pairing",
       summary:"¿Tienes diadema nueva? Dos cosas la hacen funcionar: emparejarla a la computadora, y un ajuste de RingCentral que casi todos olvidan.",
       tags:["diadema","auriculares","bluetooth","audio","teléfono de escritorio","ringcentral","emparejar","micrófono"],
       body:`<p>Una diadema solo funciona con RingCentral si se cumplen dos cosas: está emparejada a tu <strong>computadora</strong> (no a tu celular), y RingCentral está configurado para usar la <strong>computadora</strong> para las llamadas (no el teléfono de escritorio). Si falta una de las dos, las llamadas seguirán sonando en otro lado.</p>
@@ -628,15 +629,16 @@ const tips = [
 <li>En la computadora: <strong>Configuración → Bluetooth y dispositivos → Agregar dispositivo → Bluetooth</strong> → selecciona tu diadema.</li>
 <li>Si tu diadema incluye un adaptador USB, olvídate de lo anterior — conecta el adaptador y enciende la diadema.</li>
 </ol>
-<p><strong>Paso 2 — La opción de teléfono de escritorio (la que todos olvidan):</strong></p>
+<p><strong>Paso 2 — Apaga "Deskphone pairing" (el ajuste que todos olvidan):</strong></p>
 <ol>
 <li>Abre la app de RingCentral → <strong>Configuración (engrane) → Phone</strong>.</li>
-<li>Busca <strong>"Make and receive calls using."</strong></li>
-<li>Si dice <strong>Desk phone</strong> — cámbialo a <strong>This computer / RingCentral app</strong>. Si no, las llamadas seguirán sonando en el teléfono de escritorio sin importar qué diadema conectes.</li>
+<li>Baja hasta <strong>"Deskphone pairing."</strong></li>
+<li>Si el interruptor está ENCENDIDO (azul) — apágalo (<strong>OFF</strong>). Si está encendido, el audio de las llamadas sale por el teléfono de escritorio sin importar qué diadema conectes.</li>
+<li>Ya que estás ahí, revisa <strong>"Default phone app for calling"</strong> arriba — debe decir <strong>"Use RingCentral (this app)."</strong></li>
 </ol>
 <p><strong>Paso 3 — Apunta RingCentral a la diadema:</strong> Configuración → <strong>Audio</strong> → selecciona tu diadema como Micrófono y Bocina. Deja el timbre (Ringer) en las bocinas de la computadora si también quieres escuchar cuando suena.</p>
 <p><strong>Paso 4 — Prueba:</strong> llama a tu propio celular o pide a un compañero que marque tu extensión. Debes escuchar y que te escuchen por la diadema.</p>`,
-      pro:"Si deja de funcionar días después, revisa dos cosas primero: la opción de teléfono de escritorio se volvió a activar, o la diadema se conectó sola a tu celular en vez de la computadora. Desempareja la diadema de tu celular si alguna vez la conectaste ahí."
+      pro:"Si deja de funcionar días después, revisa dos cosas primero: Deskphone pairing se volvió a activar, o la diadema se conectó sola a tu celular en vez de la computadora. Desempareja la diadema de tu celular si alguna vez la conectaste ahí."
     }
   }
 ]

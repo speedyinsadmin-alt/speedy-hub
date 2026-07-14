@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>IVANS Carrier Match — Speedy Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1829; --navy-2:#12233b; --red:#D42B2B; --red-lt:#ff5c5c;
+    --blue:#1A4FA0; --blue-lt:#2E6BD4; --ink:#e8eef7; --mute:#8aa0bd;
+    --ok:#22C55E; --warn:#F59E0B; --line:rgba(255,255,255,.09); --r:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--ink);-webkit-font-smoothing:antialiased;padding-bottom:110px}
+  .display{font-family:'Bebas Neue',sans-serif;letter-spacing:.6px;line-height:.95}
+
+  header{background:radial-gradient(900px 400px at 20% -20%, #16345c 0%, var(--navy) 65%);
+    padding:34px 20px 24px;border-bottom:1px solid var(--line)}
+  .wrap{max-width:960px;margin:0 auto}
+  header h1{font-size:clamp(34px,6vw,52px);color:#fff}
+  header h1 span{color:var(--red-lt)}
+  header p{color:var(--mute);margin-top:8px;max-width:640px;font-size:15px}
+  .howto{margin-top:16px;background:var(--navy-2);border:1px solid var(--line);border-radius:var(--r);
+    padding:14px 16px;font-size:14px;color:#cfe0f5}
+  .howto b{color:#fff}
+
+  .toolbar{position:sticky;top:0;z-index:20;background:rgba(11,24,41,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:10px 20px}
+  .toolbar .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:var(--navy-2);
+    border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+  .search input{flex:1;background:none;border:none;outline:none;color:#fff;font-family:'Outfit';font-size:15px}
+  .chip{border:1px solid var(--line);background:var(--navy-2);color:#cfe0f5;border-radius:20px;
+    padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;user-select:none}
+  .chip.on{background:var(--blue);border-color:var(--blue-lt);color:#fff}
+
+  section{padding:26px 20px 6px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .sec-head h2{font-size:clamp(24px,4vw,32px);color:#fff}
+  .sec-head .count{color:var(--mute);font-size:13px;font-weight:600}
+  .sec-sub{color:var(--mute);font-size:14px;margin-bottom:16px;max-width:700px}
+
+  .card{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--r);
+    padding:14px 16px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;cursor:pointer;
+    transition:border-color .15s}
+  .card:hover{border-color:var(--blue-lt)}
+  .card.picked{border-color:var(--ok);background:linear-gradient(0deg,rgba(34,197,94,.07),rgba(34,197,94,.07)),var(--navy-2)}
+  .tick{width:26px;height:26px;border-radius:8px;border:2px solid var(--mute);flex:none;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:transparent;font-size:15px}
+  .picked .tick{background:var(--ok);border-color:var(--ok);color:#04270f}
+  .card .body{flex:1;min-width:0}
+  .cname{font-weight:700;color:#fff;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tag{font-size:10.5px;font-weight:800;letter-spacing:.6px;padding:2px 8px;border-radius:12px;text-transform:uppercase}
+  .t-carrier{background:rgba(46,107,212,.2);color:#7fa9ee}
+  .t-mga{background:rgba(245,158,11,.18);color:#fbbf24}
+  .t-pri{background:rgba(212,43,43,.22);color:#ff8080}
+  .hsname{color:var(--mute);font-size:12.5px;margin-top:2px}
+  .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .pill{font-size:11.5px;font-weight:600;color:#cfe0f5;background:rgba(46,107,212,.14);
+    border:1px solid rgba(46,107,212,.35);padding:3px 9px;border-radius:14px}
+  .pill.comm{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:#fbd68a}
+  .pill.meta{background:rgba(138,160,189,.12);border-color:rgba(138,160,189,.3);color:var(--mute)}
+
+  .static .card{cursor:default}
+  .static .card:hover{border-color:var(--line)}
+  .note{color:var(--mute);font-size:13px;line-height:1.6;background:var(--navy-2);
+    border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
+  .note b{color:#cfe0f5}
+  .fixflag{color:#fbbf24;font-size:12px;font-weight:700;margin-top:6px}
+
+  /* selection bar */
+  #bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(11,24,41,.96);
+    border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:12px 20px;transform:translateY(110%);
+    transition:transform .25s}
+  #bar.show{transform:none}
+  #bar .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  #bar .sum{flex:1;min-width:160px;font-size:14px;color:#cfe0f5}
+  #bar .sum b{color:#fff}
+  .btn{border:none;border-radius:10px;padding:12px 18px;font-family:'Outfit';font-weight:700;
+    font-size:14.5px;cursor:pointer}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-lt)}
+  .btn-ghost{background:var(--navy-2);color:#cfe0f5;border:1px solid var(--line)}
+  #toast{position:fixed;bottom:86px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+    background:var(--ok);color:#04270f;font-weight:700;padding:10px 18px;border-radius:10px;
+    transition:.25s;z-index:40;font-size:14px;pointer-events:none}
+  #toast.show{opacity:1;transform:translateX(-50%)}
+  footer{color:var(--mute);text-align:center;font-size:12px;padding:30px 20px;line-height:1.7}
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1 class="display">IVANS Carrier Match <span>— Speedy Insurance</span></h1>
+    <p>We compared IVANS' download-support list (454 companies, 3/26/2026) against our HawkSoft setup.
+       These are the carriers where automatic downloads are available but <b>not turned on yet</b>.</p>
+    <div class="howto">
+      <b>Branch managers — 2 minutes:</b> tap every carrier below that your branch writes with regularly.
+      Then hit <b>Copy my list</b> at the bottom and paste it into a reply to Saif's email. That's it.
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="search">🔎 <input id="q" type="search" placeholder="Search carriers…" aria-label="Search carriers"></div>
+    <div class="chip on" data-f="all">All</div>
+    <div class="chip" data-f="personal">Personal lines</div>
+    <div class="chip" data-f="commercial">Commercial</div>
+    <div class="chip" data-f="priority">High priority</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display">① Pick the carriers your branch uses</h2><span class="count" id="cnt1"></span></div>
+    <p class="sec-sub">In our system today but <b>not downloading</b> — IVANS confirms downloads are available. Tap to select.</p>
+    <div id="candidates"></div>
+  </div>
+</section>
+
+<section class="static">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display">② Already connected</h2><span class="count" id="cnt2"></span></div>
+    <p class="sec-sub">These carriers are set up for downloads already. Nothing to do — shown so you know they're covered. Ones marked ⚠ have setup flags Saif is fixing.</p>
+    <div id="connected"></div>
+  </div>
+</section>
+
+<section class="static">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display">③ No downloads exist</h2></div>
+    <p class="sec-sub">These companies aren't on the IVANS list at all — manual entry remains for them. No action possible.</p>
+    <div class="note" id="nolist"></div>
+  </div>
+</section>
+
+<footer>
+  Speedy Insurance Agency — internal tool · prepared 7/14/2026 by Saif (IT Admin)<br>
+  Source: IVANS carrier download-support matrix via Brian Marable + our HawkSoft Carrier/MGA setup
+</footer>
+
+<div id="bar">
+  <div class="wrap">
+    <div class="sum"><b id="npick">0</b> selected</div>
+    <button class="btn btn-ghost" onclick="clearPicks()">Clear</button>
+    <button class="btn btn-red" onclick="copyPicks()">📋 Copy my list</button>
+  </div>
+</div>
+<div id="toast">Copied — paste it into your reply ✓</div>
+
+<script>
+const CANDIDATES = [
+ {n:"Allstate", hs:"ALL STATE INSURANCE COMPANY", t:"Carrier", pri:1, kind:"personal", dl:["Personal Auto","Home","Direct Bill Commission"]},
+ {n:"Safeway", hs:"SAFEWAY INSURANCE", t:"Carrier", pri:1, kind:"personal", dl:["Personal Auto","eDocs & Messages","Direct Bill Commission"]},
+ {n:"Pacific Specialty", hs:"PACIFIC SPECIALTY", t:"Carrier", pri:1, kind:"personal", dl:["Personal Auto","Home","Dwelling Fire","Umbrella"]},
+ {n:"Orion Indemnity", hs:"ORION INDEMNITY INSURANCE", t:"Carrier", pri:1, kind:"personal", dl:["Personal Auto","eDocs & Messages","Direct Bill Commission"]},
+ {n:"AmTrust", hs:"AmTrust", t:"Carrier", pri:1, kind:"commercial", dl:["Comm Auto","BOP","GL","Inland Marine","Package","Property","Umbrella","Workers Comp"]},
+ {n:"Blue Fire", hs:"BLUE FIRE", t:"MGA", kind:"personal", dl:["Personal Auto"]},
+ {n:"Hallmark", hs:"HALLMARK", t:"Carrier", kind:"personal", dl:["Personal Auto","Home"]},
+ {n:"Bamboo", hs:"BAMBOO", t:"MGA", kind:"personal", dl:["Home","Dwelling Fire"]},
+ {n:"Hippo", hs:"HIPPO HOME INS", t:"MGA", kind:"personal", dl:["Home","Dwelling Fire"]},
+ {n:"Lemonade", hs:"LEMONADE", t:"Carrier", kind:"personal", dl:["Home"]},
+ {n:"Delos", hs:"DELOS INSURANCE", t:"Carrier", kind:"personal", dl:["Home"]},
+ {n:"Millennial Specialty", hs:"MILLENNIAL SPECIALTY INSURANCE", t:"MGA", kind:"personal", dl:["Home","Flood"]},
+ {n:"Hiscox", hs:"HISCOX / HISCOX INS", t:"Carrier", kind:"commercial", dl:["BOP","GL","Package"]},
+ {n:"Markel", hs:"MARKEL", t:"Carrier", kind:"commercial", dl:["BOP","Workers Comp"]},
+ {n:"Tokio Marine HCC", hs:"TOKIO MARINE HCC", t:"Carrier", kind:"commercial", dl:["GL"]},
+ {n:"Narragansett Bay", hs:"NARRAGANSETT BAY INSURANCE", t:"Carrier", kind:"personal", dl:["Direct Bill Commission only"]},
+];
+const CONNECTED = [
+ {n:"Progressive", dl:["eDocs","Claims","Commission","Comm Auto","BOP","Personal Auto","Home","Umbrella"]},
+ {n:"Mercury", dl:["eDocs","Commission","Comm Auto","BOP","Personal Auto","Home","Dwelling Fire","Umbrella"]},
+ {n:"SafeCo", dl:["eDocs","Claims","Commission","Personal Auto","Home","Dwelling Fire","Umbrella"]},
+ {n:"Foremost", dl:["eDocs","Commission","Personal Auto","Home","Dwelling Fire","Mobile Home"]},
+ {n:"Bristol West", flag:1, dl:["Comm Auto","Personal Auto"]},
+ {n:"Kemper Auto", flag:1, dl:["Commission","Comm Auto","Personal Auto"]},
+ {n:"Dairyland", flag:1, dl:["Personal Auto"]},
+ {n:"National General", flag:1, dl:["eDocs","Claims","Commission","Comm Auto","Personal Auto","Home","Dwelling Fire","Flood","Mobile Home","Package"]},
+ {n:"MAPFRE / Commerce", flag:1, dl:["eDocs","Claims","Commission","Comm Auto","Personal Auto","Home","Dwelling Fire","Umbrella"]},
+ {n:"American Modern", dl:["Commission","Personal Auto","Home","Dwelling Fire","Mobile Home"]},
+ {n:"Cabrillo Coastal", dl:["Home","Dwelling Fire","Mobile Home"]},
+ {n:"Bridger", dl:["Personal Auto"]},
+ {n:"Mendota", dl:["Personal Auto"]},
+ {n:"Nations", dl:["Personal Auto"]},
+ {n:"Root", dl:["Personal Auto"]},
+ {n:"Hagerty", dl:["Personal Auto"]},
+ {n:"Stillwater", flag:1, dl:["Commission","BOP","Personal Auto","Home","Dwelling Fire","Inland Marine","Umbrella"]},
+ {n:"United Fire Group", dl:["eDocs","Claims","Commission","full commercial suite"]},
+ {n:"Arrowhead", dl:["Commission","Home"]},
+ {n:"Aegis Security / Aegis General", flag:1, dl:["Commission","Personal Auto","Home","Dwelling Fire","Mobile Home"]},
+];
+const NOLIST = "ACCESS · ALLIANCE UNITED · AMERICAN ACCESS · AMERICAN SUMMIT · ANCHOR DIAMOND · ANCHOR GENERAL (+ BLUESTAR) · APPLIED UW · ATLANTIC CASUALTY · BERKSHIRE HATHAWAY HOMESTATE · BRANCH · BROKBROOKSIDE · BTIS · CA FAIRPLAN · CARNEGIE · CLEAR SPRING · CLEARCOVER · CORE SPECIALTY · COTERIE · COVER · COVERWHALE · CSE · DRIVE · EMBARK · FIRST CONNECT · FUTURISTIC UW · GOLDEN BEAR · HERRITAGE · INFINITY · INSYST · ISC · KEMPER SPECIALTY · KINSALE · LATIN AUTO CLUB · LIGHTSPEED · MCGRAW · MENDAKOTA · NATIONAL CONTINENTAL · NATIONAL SPECIALTY · NEXT · ONWARD · PACIFIC COSTAL CABRILLO · PGIA · PRO GENERAL · PRONTO · QUALITAS · RELIANT · RIC/STATE FUND (CA) · RISK INNOVATIONS · RPS · SCOTTISH AMERICAN · SIC · SIRIUSPOINT · SOUTHEAST PERSONNEL · SUN COAST · SUPERIOR ACCESS · SURYA · TAPCO · TOPA · TRITON · UNION GENERAL · USLI · WAY · WESTERN GENERAL · WESTERN SKIES · WORKMENS <br><br><b>Note:</b> Travelers supports commercial-lines downloads on IVANS — can be requested if we hold a commercial appointment.";
+
+const picks = new Set();
+let filter = 'all';
+
+function candCard(c, i){
+  const pills = c.dl.map(d=>`<span class="pill ${c.kind==='commercial'?'comm':''}">${d}</span>`).join('');
+  return `<div class="card" data-i="${i}" data-kind="${c.kind}" data-pri="${c.pri||0}" data-name="${c.n.toLowerCase()} ${c.hs.toLowerCase()}" onclick="toggle(${i})">
+    <div class="tick">✓</div>
+    <div class="body">
+      <div class="cname">${c.n}
+        <span class="tag ${c.t==='MGA'?'t-mga':'t-carrier'}">${c.t}</span>
+        ${c.pri?'<span class="tag t-pri">High priority</span>':''}
+      </div>
+      <div class="hsname">In our HawkSoft as: ${c.hs}</div>
+      <div class="pills">${pills}</div>
+    </div></div>`;
+}
+function connCard(c){
+  const pills = c.dl.map(d=>`<span class="pill meta">${d}</span>`).join('');
+  return `<div class="card"><div class="body">
+    <div class="cname">${c.n}</div>
+    <div class="pills">${pills}</div>
+    ${c.flag?'<div class="fixflag">⚠ Setup flag in HawkSoft — Saif is fixing (may explain unmatched downloads)</div>':''}
+  </div></div>`;
+}
+function render(){
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  const box = document.getElementById('candidates');
+  box.innerHTML = CANDIDATES.map((c,i)=>candCard(c,i)).join('');
+  let vis = 0;
+  box.querySelectorAll('.card').forEach(el=>{
+    const okF = filter==='all' || (filter==='priority' ? el.dataset.pri==='1' : el.dataset.kind===filter);
+    const okQ = !q || el.dataset.name.includes(q);
+    el.style.display = (okF&&okQ)?'':'none';
+    if(okF&&okQ) vis++;
+    if(picks.has(+el.dataset.i)) el.classList.add('picked');
+  });
+  document.getElementById('cnt1').textContent = vis + ' of ' + CANDIDATES.length + ' shown';
+}
+function toggle(i){
+  picks.has(i)?picks.delete(i):picks.add(i);
+  document.querySelector(`.card[data-i="${i}"]`)?.classList.toggle('picked');
+  syncBar();
+}
+function syncBar(){
+  document.getElementById('npick').textContent = picks.size;
+  document.getElementById('bar').classList.toggle('show', picks.size>0);
+}
+function clearPicks(){ picks.clear(); render(); syncBar(); }
+function copyPicks(){
+  const names = [...picks].sort((a,b)=>a-b).map(i=>CANDIDATES[i].n);
+  const txt = "Carriers my branch writes with (IVANS download request):\n- " + names.join("\n- ");
+  navigator.clipboard.writeText(txt).then(()=>{
+    const t=document.getElementById('toast'); t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2200);
+  });
+}
+document.getElementById('q').addEventListener('input', render);
+document.querySelectorAll('.chip').forEach(ch=>ch.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  ch.classList.add('on'); filter = ch.dataset.f; render();
+}));
+document.getElementById('connected').innerHTML = CONNECTED.map(connCard).join('');
+document.getElementById('cnt2').textContent = CONNECTED.length + ' carriers';
+document.getElementById('nolist').innerHTML = NOLIST;
+render();
+</script>
+</body>
+</html>
